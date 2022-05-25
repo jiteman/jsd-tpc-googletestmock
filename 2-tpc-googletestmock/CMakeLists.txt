@@ -8,13 +8,14 @@ JSD_SHOW_PROJECT_HEADER()
 
 include( ${JSD_SSC_CMAKE_PATH}/tpc-googletestmock-set-compiler-settings.cmake )
 
-set( JSD_INCLUDED_PROJECT_HEADER_PATH ${JSD_SSC_SOURCE_PATH}/googletest/include )
-set( JSD_INCLUDED_PROJECT_SOURCE_PATH ${JSD_SSC_SOURCE_PATH}/googletest/src )
-set( JSD_THIS_PROJECT_HEADER_PATH ${JSD_SSC_SOURCE_PATH}/googlemock/include )
-set( JSD_THIS_PROJECT_SOURCE_PATH ${JSD_SSC_SOURCE_PATH}/googlemock/src )
+set( JSD_INCLUDED_PROJECT_HEADER_PATH ${JSD_SSC_SOURCE_PATH}/googletest/googletest/include )
+set( JSD_INCLUDED_PROJECT_SOURCE_PATH ${JSD_SSC_SOURCE_PATH}/googletest/googletest/src )
+set( JSD_THIS_PROJECT_HEADER_PATH ${JSD_SSC_SOURCE_PATH}/googletest/googlemock/include )
+set( JSD_THIS_PROJECT_SOURCE_PATH ${JSD_SSC_SOURCE_PATH}/googletest/googlemock/src )
+set( JSD_THIS_PROJECT_ADHOCS_PATH ${JSD_SSC_SOURCE_PATH}/jsd_adhocs )
 
-list( APPEND ${PROJECT_NAME}_TEST_SOURCE_DIRS_VAR ${JSD_SSC_SOURCE_PATH}/googletest/test )
-list( APPEND ${PROJECT_NAME}_TEST_SOURCE_DIRS_VAR ${JSD_SSC_SOURCE_PATH}/googlemock/test )
+list( APPEND ${PROJECT_NAME}_TEST_SOURCE_DIRS_VAR ${JSD_SSC_SOURCE_PATH}/googletest/googletest/test )
+list( APPEND ${PROJECT_NAME}_TEST_SOURCE_DIRS_VAR ${JSD_SSC_SOURCE_PATH}/googletest/googlemock/test )
 
 
 ## include dependencies
@@ -26,7 +27,15 @@ list( REMOVE_DUPLICATES ${PROJECT_NAME}_DEPENDENCY_DIRS_VAR )
 
 include_directories(
 	${${PROJECT_NAME}_DEPENDENCY_DIRS_VAR}
-	${JSD_SSC_SOURCE_PATH}/googletest )
+	${JSD_SSC_SOURCE_PATH}/googletest/googletest )
+
+include_directories( ${JSD_THIS_PROJECT_ADHOCS_PATH}/common )
+
+if( UNIX )
+	include_directories( ${JSD_THIS_PROJECT_ADHOCS_PATH}/linux )
+elseif ( WIN32 )
+	include_directories( ${JSD_THIS_PROJECT_ADHOCS_PATH}/windows )
+endif()
 
 
 ## this project headers and sources enumeration section
