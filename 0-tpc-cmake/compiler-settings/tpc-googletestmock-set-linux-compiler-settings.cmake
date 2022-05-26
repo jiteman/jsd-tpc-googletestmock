@@ -21,6 +21,7 @@ if ( UNIX )
 	## list( APPEND ${PROJECT_NAME}_CXX_FLAGS_RELEASE "-Wno-" ) #
 	list( APPEND ${PROJECT_NAME}_CXX_FLAGS_RELEASE "-finline-limit=1000" ) # # default ( 600 )
 	list( APPEND ${PROJECT_NAME}_CXX_FLAGS_RELEASE "--param inline-unit-growth=100" ) # default ( 50 )
+	list( APPEND ${PROJECT_NAME}_CXX_FLAGS_RELEASE "-Wno-inline" ) # inlining failed in call to '' call is unlikely and code size would grow
 
 	string( REPLACE ";" " " ${PROJECT_NAME}_CXX_FLAGS_RELEASE_STR "${${PROJECT_NAME}_CXX_FLAGS_RELEASE}" )
 

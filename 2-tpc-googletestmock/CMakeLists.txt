@@ -14,7 +14,7 @@ set( JSD_THIS_PROJECT_HEADER_PATH ${JSD_SSC_SOURCE_PATH}/googletest/googlemock/i
 set( JSD_THIS_PROJECT_SOURCE_PATH ${JSD_SSC_SOURCE_PATH}/googletest/googlemock/src )
 set( JSD_THIS_PROJECT_ADHOCS_PATH ${JSD_SSC_SOURCE_PATH}/jsd_adhocs )
 
-list( APPEND ${PROJECT_NAME}_TEST_SOURCE_DIRS_VAR ${JSD_SSC_SOURCE_PATH}/googletest/googletest/test )
+set( ${PROJECT_NAME}_TEST_SOURCE_DIRS_VAR ${JSD_SSC_SOURCE_PATH}/googletest/googletest/test )
 list( APPEND ${PROJECT_NAME}_TEST_SOURCE_DIRS_VAR ${JSD_SSC_SOURCE_PATH}/googletest/googlemock/test )
 
 
