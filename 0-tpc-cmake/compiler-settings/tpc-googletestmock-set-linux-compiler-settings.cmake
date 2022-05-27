@@ -1,6 +1,7 @@
 JSD_CMAKE_CURRENT_FILE_IN( "${JSD_SSC_FULL_NAME}-linux-compiler-settings.cmake" )
 
 if ( UNIX )
+	# C++ common
 	set( ${PROJECT_NAME}_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
 
 	## list( APPEND ${PROJECT_NAME}_CXX_FLAGS "-Wno-" ) #
@@ -15,7 +16,7 @@ if ( UNIX )
 
 	## set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-format" )
 
-	# release
+	# C++ release
 	set( ${PROJECT_NAME}_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE} )
 
 	## list( APPEND ${PROJECT_NAME}_CXX_FLAGS_RELEASE "-Wno-" ) #
